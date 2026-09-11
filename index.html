@@ -215,11 +215,30 @@ p:last-child{margin-bottom:0}
 @media(max-width:860px){.about{grid-template-columns:1fr}}
 
 /* realizace */
-.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.75rem,1.6vw,1.25rem)}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,1.8vw,1.5rem)}
 .shots figure{margin:0}
+.shots button{
+  display:block;padding:0;border:0;background:none;cursor:zoom-in;width:100%;
+}
 .shots img{aspect-ratio:3/4;object-fit:cover;width:100%;background:#DCDDD8}
-.shots figcaption{padding-top:.6rem;font-size:.88rem;color:var(--steel);border-top:1px solid var(--line);margin-top:.6rem}
-@media(max-width:900px){.shots{grid-template-columns:repeat(2,1fr)}}
+.shots figcaption{padding-top:.6rem;font-size:.9rem;color:var(--steel);border-top:1px solid var(--line);margin-top:.6rem}
+@media(max-width:960px){.shots{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.shots{grid-template-columns:1fr}}
+
+/* zvětšení fotky */
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(10,40,66,.95);
+  display:none;align-items:center;justify-content:center;padding:clamp(1rem,3vw,2.5rem);
+}
+.lb[open],.lb.is-on{display:flex}
+.lb img{max-width:min(100%,760px);max-height:82vh;width:auto;object-fit:contain}
+.lb figcaption{color:var(--on-dark);font-size:.92rem;padding-top:.9rem;text-align:center}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center}
+.lb__x{
+  position:absolute;top:1rem;right:1rem;background:none;border:1px solid rgba(255,255,255,.45);
+  color:#fff;font-family:var(--cond);font-size:1.15rem;padding:.4rem .9rem;cursor:pointer;
+}
+.lb__x:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 
 /* kontakt */
 .contact{background:var(--navy-d);color:#fff}
@@ -433,14 +452,14 @@ p:last-child{margin-bottom:0}
         <p>Průřez tím, co děláme nejčastěji — plyn, voda a technologie uvnitř objektů.</p>
       </div>
       <div class="shots">
-        <figure><img src="img/r1.jpg" alt="Regulační a měřicí sestava plynu s manometry ve skříni" loading="lazy" width="820" height="1093"><figcaption>Regulační a měřicí sestava plynu</figcaption></figure>
-        <figure><img src="img/r2.jpg" alt="Žlutý plynovod vedený pod stropem výrobní haly k technologii" loading="lazy" width="820" height="1093"><figcaption>Průmyslový plynovod ve výrobní hale</figcaption></figure>
-        <figure><img src="img/r3.jpg" alt="Uzlový bod vodovodního řadu s litinovými šoupátky ve výkopu" loading="lazy" width="820" height="1093"><figcaption>Uzlový bod vodovodního řadu</figcaption></figure>
-        <figure><img src="img/r4.jpg" alt="Osazený podzemní hydrant a armatury na vodovodním řadu" loading="lazy" width="820" height="1093"><figcaption>Podzemní hydrant na novém řadu</figcaption></figure>
-        <figure><img src="img/r5.jpg" alt="Rozdělovač s oběhovými čerpadly a izolovaným potrubím v kotelně" loading="lazy" width="820" height="1093"><figcaption>Rozdělovač a čerpadlové skupiny v kotelně</figcaption></figure>
-        <figure><img src="img/r6.jpg" alt="Baterie zásobníků propan-butanu s rozvodem u zemědělského objektu" loading="lazy" width="820" height="1093"><figcaption>Plynové hospodářství PB, zemědělský areál</figcaption></figure>
-        <figure><img src="img/r7.jpg" alt="Plynovodní přípojka a skříň hlavního uzávěru plynu ve výkopu" loading="lazy" width="820" height="1093"><figcaption>Plynovodní přípojka a hlavní uzávěr</figcaption></figure>
-        <figure><img src="img/r8.jpg" alt="Výkop se souběhem vodovodu a plynovodu, modrá a žlutá výstražná fólie" loading="lazy" width="820" height="1093"><figcaption>Souběh vodovodu a plynovodu</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r1.jpg" alt="Regulační a měřicí sestava plynu s manometry ve skříni" loading="lazy" width="820" height="1093"></button><figcaption>Regulační a měřicí sestava plynu</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r2.jpg" alt="Žlutý plynovod vedený pod stropem výrobní haly k technologii" loading="lazy" width="820" height="1093"></button><figcaption>Průmyslový plynovod ve výrobní hale</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r3.jpg" alt="Uzlový bod vodovodního řadu s litinovými šoupátky ve výkopu" loading="lazy" width="820" height="1093"></button><figcaption>Uzlový bod vodovodního řadu</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r4.jpg" alt="Osazený podzemní hydrant a armatury na vodovodním řadu" loading="lazy" width="820" height="1093"></button><figcaption>Podzemní hydrant na novém řadu</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r5.jpg" alt="Rozdělovač s oběhovými čerpadly a izolovaným potrubím v kotelně" loading="lazy" width="820" height="1093"></button><figcaption>Rozdělovač a čerpadlové skupiny v kotelně</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r6.jpg" alt="Baterie zásobníků propan-butanu s rozvodem u zemědělského objektu" loading="lazy" width="820" height="1093"></button><figcaption>Plynové hospodářství PB, zemědělský areál</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r7.jpg" alt="Plynovodní přípojka a skříň hlavního uzávěru plynu ve výkopu" loading="lazy" width="820" height="1093"></button><figcaption>Plynovodní přípojka a hlavní uzávěr</figcaption></figure>
+        <figure><button type="button" aria-label="Zvětšit fotku"><img src="img/r8.jpg" alt="Výkop se souběhem vodovodu a plynovodu, modrá a žlutá výstražná fólie" loading="lazy" width="820" height="1093"></button><figcaption>Souběh vodovodu a plynovodu</figcaption></figure>
       </div>
     </div>
   </section>
@@ -474,6 +493,12 @@ p:last-child{margin-bottom:0}
     </div>
   </section>
 </main>
+
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Zvětšená fotka">
+  <button class="lb__x" id="lbx" type="button">Zavřít</button>
+  <figure><img id="lbimg" src="" alt=""><figcaption id="lbcap"></figcaption></figure>
+</div>
 
 <footer class="foot">
   <div class="tape tape--dark"></div>
@@ -521,6 +546,23 @@ p:last-child{margin-bottom:0}
     if(e.target.tagName==='A'){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');}
   });
   document.getElementById('rok').textContent=new Date().getFullYear();
+
+  // zvětšení fotek v galerii
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg'), lbcap=document.getElementById('lbcap');
+  function closeLb(){lb.classList.remove('is-on');lbimg.src='';document.body.style.overflow='';}
+  document.querySelectorAll('.shots button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var im=btn.querySelector('img');
+      lbimg.src=im.src; lbimg.alt=im.alt;
+      lbcap.textContent=btn.parentNode.querySelector('figcaption').textContent;
+      lb.classList.add('is-on'); document.body.style.overflow='hidden';
+      document.getElementById('lbx').focus();
+    });
+  });
+  document.getElementById('lbx').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-on'))closeLb();});
+
 })();
 </script>
 </body>
